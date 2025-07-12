@@ -12,8 +12,8 @@ const VALUE_MAX_LENGTH = 100000;
 const USERNAME_MAX_LENGTH = 20;
 /** Minimum length of usernames, inclusive. */
 const USERNAME_MIN_LENGTH = 1;
-/** Regex for usernames to match. Any characters except spaces (allows Chinese characters, letters, numbers, -, and _) */
-const USERNAME_REGEX = /^[^\s]+$/;
+/** Regex for usernames to match. No leading/trailing spaces, but allows spaces in the middle */
+const USERNAME_REGEX = /^[^\s].*[^\s]$|^[^\s]$/;
 
 /**
  * @param {unknown} username
