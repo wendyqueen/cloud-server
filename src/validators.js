@@ -12,13 +12,15 @@ const VALUE_MAX_LENGTH = 100000;
 const USERNAME_MAX_LENGTH = 20;
 /** Minimum length of usernames, inclusive. */
 const USERNAME_MIN_LENGTH = 1;
+/** Regex for usernames to match. Any characters except spaces (allows Chinese characters, letters, numbers, -, and _) */
+const USERNAME_REGEX = /^[^\s]+$/;
 
 /**
  * @param {unknown} username
  * @returns {boolean}
  */
 module.exports.isValidUsername = function(username) {
-  return typeof username === 'string' && username.length >= USERNAME_MIN_LENGTH && username.length <= USERNAME_MAX_LENGTH && !naughty(username);
+  return typeof username === 'string' && username.length >= USERNAME_MIN_LENGTH && username.length <= USERNAME_MAX_LENGTH && USERNAME_REGEX.test(username) && !naughty(username);
 };
 
 /**
