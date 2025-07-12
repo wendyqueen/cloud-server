@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  cloud-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9080:9080"
+    environment:
+      - NODE_ENV=production
+      - PORT=9080
+      # - TRUST_PROXY=true
+      # - ANONYMIZE_ADDRESSES=true
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
