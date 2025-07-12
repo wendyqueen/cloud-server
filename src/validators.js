@@ -20,7 +20,7 @@ const USERNAME_REGEX = /^[a-z0-9_-]+$/i;
  * @returns {boolean}
  */
 module.exports.isValidUsername = function(username) {
-  return typeof username === 'string' && username.length >= USERNAME_MIN_LENGTH && username.length <= USERNAME_MAX_LENGTH && USERNAME_REGEX.test(username) && !naughty(username);
+  return typeof username === 'string' && username.length >= USERNAME_MIN_LENGTH && username.length <= USERNAME_MAX_LENGTH && !naughty(username);
 };
 
 /**
